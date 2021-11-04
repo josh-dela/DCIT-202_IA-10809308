@@ -51,27 +51,15 @@ export default function Home({ navigation }) {
       <TouchableOpacity onPress={() => navigation.navigate("details", plant)}>
         <View style={style.card}>
           <View style={{ alignItems: "flex-end" }}>
-            <AntDesign name="google" size={18} color="black" />
+            <AntDesign name="google" size={18} color="red" />
           </View>
-          <View style={{ flex: 1, alignItems: "center", color: "blue" }}>
+          <View style={{ height: 100, alignItems: "center" }}>
             <Image
-              style={{
-                flex: 1,
-                width: 1000,
-                height: 1000,
-                resizeMode: "contain",
-              }}
+              style={{ flex: 1, resizeMode: "contain" }}
               source={plant.img}
             />
           </View>
-          <Text
-            style={{
-              fontWeight: "bold",
-              fontSize: 17,
-              marginTop: 10,
-              color: "blue",
-            }}
-          >
+          <Text style={{ fontWeight: "bold", fontSize: 17, marginTop: 10 }}>
             {plant.name}
           </Text>
           <View
@@ -134,9 +122,10 @@ export default function Home({ navigation }) {
           marginTop: 10,
           paddingBottom: 50,
         }}
+        columnWrapperStyle={{ justifyContent: "space-between" }}
         numColumns={2}
         data={plants}
-        renderItem={({ item }) => <Card plant={item} />}
+        renderItems={({ item }) => <Card plant={item} />}
       />
       <View>
         <Text>WHat the hell</Text>
@@ -189,7 +178,6 @@ const style = StyleSheet.create({
     height: 225,
     backgroundColor: "red",
     width,
-    marginHorizontal: 2,
     marginBottom: 20,
     padding: 15,
   },
