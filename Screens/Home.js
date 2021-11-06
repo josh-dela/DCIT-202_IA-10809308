@@ -1,6 +1,7 @@
 //import { Navigation } from "react-navigation";
 import React, { useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 //import MyTabs from "./Screens/bottomTabs";
 import {
   Text,
@@ -14,12 +15,12 @@ import {
   FlatList,
 } from "react-native";
 
-import { plants } from "../assets/plants";
+import { shoes } from "../assets/shoes";
 
 const width = Dimensions.get("screen").width / 2 - 30;
 
 export default function Home({ navigation }) {
-  const categories = ["POPULAR", "ORGANIC", "INDOORS", "SYNTHETIC"];
+  const categories = ["Shoes", "CLothing", "Furniture", "Bicycle"];
 
   const [categoryIndex, setCategoryIndex] = React.useState(0);
 
@@ -46,33 +47,33 @@ export default function Home({ navigation }) {
     );
   };
 
-  const Card = ({ plant }) => {
+  const Card = ({ shoe }) => {
     return (
-      <TouchableOpacity onPress={() => navigation.navigate("details", plant)}>
+      <TouchableOpacity onPress={() => navigation.navigate("details", shoe)}>
         <View style={style.card}>
           <View style={{ alignItems: "flex-end" }}>
-            <AntDesign name="google" size={18} color="black" />
+            <MaterialIcons name="favorite-border" size={24} color="#8F00FF" />
           </View>
           <View style={{ flex: 1, alignItems: "center", color: "blue" }}>
             <Image
               style={{
                 flex: 1,
-                width: 1000,
-                height: 1000,
+                width: 100,
+                height: 100,
                 resizeMode: "contain",
               }}
-              source={plant.img}
+              source={shoe.img}
             />
           </View>
           <Text
             style={{
               fontWeight: "bold",
-              fontSize: 17,
+              fontSize: 14,
               marginTop: 10,
-              color: "blue",
+              color: "white",
             }}
           >
-            {plant.name}
+            {shoe.name}
           </Text>
           <View
             style={{
@@ -82,19 +83,21 @@ export default function Home({ navigation }) {
             }}
           >
             <Text style={{ fontSize: 10, fontWeight: "bold" }}>
-              ${plant.price}
+              ${shoe.price}
             </Text>
             <View
               style={{
-                height: 25,
-                width: 25,
-                backgroundColor: "green",
+                height: 23,
+                width: 23,
+                backgroundColor: "grey",
                 borderRadius: 5,
                 justifyContent: "center",
                 alignItems: "center",
               }}
             >
-              <Text style={{ fontSize: 22, color: "blue", fontWeight: "bold" }}>
+              <Text
+                style={{ fontSize: 22, color: "white", fontWeight: "bold" }}
+              >
                 +
               </Text>
             </View>
@@ -106,26 +109,16 @@ export default function Home({ navigation }) {
 
   return (
     <SafeAreaView
-      style={{ flex: 1, paddingHorizontal: 20, backgroundColor: "white" }}
+      style={{ flex: 1, paddingHorizontal: 20, backgroundColor: "#131313" }}
     >
-      <View style={style.header}>
-        <View>
-          <Text style={{ fontSize: 25, fontWeight: "bold" }}>Welcome to </Text>
-        </View>
-        <AntDesign name="apple1" size={24} color="white" />
-      </View>
-      <View style={{ marginTop: 30, flexDirection: "row" }}>
+      <View style={{ marginTop: 50, flexDirection: "row" }}>
         <View style={style.searchContainer}>
-          <AntDesign
-            name="apple1"
-            size={24}
-            color="white"
-            style={{ marginLeft: 20 }}
-          />
+          <AntDesign name="search1" size={18} color="white" />
           <TextInput placeholder="search" style={style.input} />
         </View>
-        <View style={style.sortButton}></View>
-        <AntDesign name="google" size={24} color="red" />
+        <View style={{ marginTop: 7 }}>
+          <AntDesign name="shoppingcart" size={24} color="white" />
+        </View>
       </View>
       <CategoryList />
       <FlatList
@@ -135,42 +128,29 @@ export default function Home({ navigation }) {
           paddingBottom: 50,
         }}
         numColumns={2}
-        data={plants}
-        renderItem={({ item }) => <Card plant={item} />}
+        data={shoes}
+        renderItem={({ item }) => <Card shoe={item} />}
       />
-      <View>
-        <Text>WHat the hell</Text>
-      </View>
     </SafeAreaView>
   );
 }
 
 const style = StyleSheet.create({
-  header: {
-    marginTop: 20,
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
   searchContainer: {
-    height: 50,
-    backgroundColor: "grey",
+    height: 40,
+    backgroundColor: "#202020",
     borderRadius: 10,
     flex: 1,
     flexDirection: "row",
     alignItems: "center",
+    padding: 6,
+    marginRight: 20,
   },
   input: {
     fontSize: 18,
-    fontWeight: "bold",
-    color: "black",
+    color: "white",
     flex: 1,
-  },
-  sortButton: {
-    marginLeft: 10,
-    height: 50,
-    width: 50,
-    backgroundColor: "green",
-    alignItems: "center",
+    marginLeft: 5,
   },
   categoriesContainer: {
     flexDirection: "row",
@@ -178,19 +158,20 @@ const style = StyleSheet.create({
     marginBottom: 20,
     justifyContent: "space-between",
   },
-  categoryText: { fontSize: 16, color: "grey", fontWeight: "bold" },
+  categoryText: { fontSize: 14, color: "grey", fontWeight: "bold" },
   categoryTextSelected: {
-    color: "red",
+    color: "white",
     paddingBottom: 5,
     borderBottomWidth: 2,
-    borderColor: "green",
+    borderColor: "#9dc5c3",
   },
   card: {
-    height: 225,
-    backgroundColor: "red",
+    height: 300,
+    backgroundColor: "#202020",
     width,
-    marginHorizontal: 2,
+    marginHorizontal: 4,
     marginBottom: 20,
     padding: 15,
+    borderRadius: 10,
   },
 });
