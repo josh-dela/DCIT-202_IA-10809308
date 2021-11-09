@@ -5,7 +5,7 @@ export const shoes = [
     price: "39.99",
     like: "true",
     about: "This feels very yes",
-    img: require("../assets/allbirds_shoe.png"),
+    img: require("../assets/classic.png"),
   },
   {
     id: "2",
@@ -62,5 +62,13 @@ export const shoes = [
     like: "true",
     about: "This feels very good",
     img: require("../assets/Dream.jpeg"),
+  },
+  {
+    id: "9",
+    name: "Vans African",
+    price: "40.45",
+    like: "true",
+    about: "This is Vans African",
+    img: require("../assets/vansAfrican.jpeg"),
   },
 ];
