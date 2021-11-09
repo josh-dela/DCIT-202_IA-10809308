@@ -1,64 +1,41 @@
-/*import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigator/stack";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Text, Dimension } from "react-native";
+import { Text, Dimension, View } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
+import React from "react";
 
-import Login from "./Screens/Login.js";
-import Home from "./Screens/Home.js";
-import Cart from "./Screens/Cart.js";
+import Home from "../Screens/Home";
 
-const fullScreenWidth = Dimension.get("window").width;
+const Tab = createBottomTabNavigator();
 
-const Stack = createStackNavigator();
-function HomeStackScreen() {
+//remove background colour from TabNavigator
+
+const BottomNavigator = () => {
   return (
-    <Stack.Navigator>
-      <Tab.Screen name="Login" component={Login} />
-    </Stack.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        tabBarOptions: {
+          style: {
+            height: 30,
+            backgroundColor: "#202020",
+          },
+          showLabel: false,
+          activeTintColor: "blue",
+        },
+      }}
+    >
+      <Tab.Screen
+        name="HomeS"
+        component={Home}
+        options={{
+          header: () => null,
+          tabBarIcon: ({ color }) => (
+            <AntDesign name="home" size={24} color="red" />
+          ),
+        }}
+      />
+    </Tab.Navigator>
   );
-}
-function HomeStackScreen() {
-  return (
-    <Stack.Navigator>
-      <Tab.Screen name="Home" component={Home} />
-    </Stack.Navigator>
-  );
-}
-function HomeStackScreen() {
-  return (
-    <Stack.Navigator>
-      <Tab.Screen name="Cart" component={Cart} />
-    </Stack.Navigator>
-  );
-}
-
-export default function Navigation(prop) {
-  return (
-    <NavigationContainer>
-      <Tab.Navigator
-      /*screenOptions = {({route}) => ({headerTitle: () => <Text>Header</Text>,
-      tabBarIcon: ({focused,color,size,padding})=>{
-        let iconNAme;
-        if(route.name === 'Home' ){
-          iconName = fo
-        }
-      }})}*/ /*
-      >
-        <Tab.Screen name="Login" component={Login} />
-        <Tab.Screen name="Cart" component={Cart} />
-        <Tab.Screen name="Home" component={Home} />
-      </Tab.Navigator>
-    </NavigationContainer>
-  );
-}*/
-
-/*<FlatList
-  numColumns={2}
-  data={collection}
-  renderItem={({ item }) => <Text style={styles.item}>{item.name} </Text>}
-/>;
-
-/*borderWidth: 1,
-padding: 8,
-margin: 10,
-weight: 200,*/
+};
+export default BottomNavigator;

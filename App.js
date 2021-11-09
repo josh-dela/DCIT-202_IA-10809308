@@ -7,6 +7,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Home from "./Screens/Home";
 import details from "./Screens/details";
 import Login from "./Screens/Login";
+import BottomNavigator from "./Navigation/bottomTab";
 
 export default function App() {
   const MainNavigator = createStackNavigator();
@@ -22,7 +23,7 @@ export default function App() {
           />
           <MainNavigator.Screen
             name="Home"
-            component={Home}
+            component={BottomNavigator}
             options={{ header: () => null }}
           />
           <MainNavigator.Screen
@@ -39,6 +40,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "red",
   },
 });

@@ -27,7 +27,12 @@ export default function details({ navigation, route }) {
       <View style={style.imageContainer}>
         <Image
           source={shoe.img}
-          style={{ height: 150, width: 200, resizeMode: "contain", flex: 1 }}
+          style={{
+            height: "100%",
+            width: "100%",
+            resizeMode: "contain",
+            flex: 1,
+          }}
         />
       </View>
       <View style={style.detailsContainer}>

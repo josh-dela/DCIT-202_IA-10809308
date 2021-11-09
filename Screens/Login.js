@@ -1,5 +1,12 @@
 import React from "react";
-import { Text, View, Image, TouchableOpacity, TextInput } from "react-native";
+import {
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  TextInput,
+  StyleSheet,
+} from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -7,14 +14,8 @@ import { LinearGradient } from "expo-linear-gradient";
 
 export default function Login({ navigation }) {
   return (
-    <View
-      style={{
-        backgroundColor: "#131313",
-        flex: 1,
-        padding: 40,
-      }}
-    >
-      <View style={{ padding: 20, marginTop: 30 }}>
+    <View style={style.mainContainer}>
+      <View style={{ padding: 20 }}>
         <Text
           style={{
             color: "white",
@@ -35,34 +36,10 @@ export default function Login({ navigation }) {
           justifyContent: "space-between",
         }}
       >
-        <TouchableOpacity
-          style={{
-            backgroundColor: "#202020",
-            padding: 10,
-            paddingHorizontal: 40,
-            borderRadius: 10,
-            marginTop: 10,
-            alignItems: "center",
-            width: 150,
-            borderColor: "#9dc5c3",
-            borderWidth: 2,
-          }}
-        >
+        <TouchableOpacity style={style.googleButton}>
           <AntDesign name="google" size={18} color="white" />
         </TouchableOpacity>
-        <TouchableOpacity
-          style={{
-            backgroundColor: "#202020",
-            padding: 10,
-            paddingHorizontal: 40,
-            borderRadius: 10,
-            marginTop: 10,
-            alignItems: "center",
-            width: 150,
-            borderColor: "#9dc5c3",
-            borderWidth: 2,
-          }}
-        >
+        <TouchableOpacity style={style.appleButton}>
           <AntDesign name="apple1" size={18} color="white" />
         </TouchableOpacity>
       </View>
@@ -71,16 +48,7 @@ export default function Login({ navigation }) {
       </Text>
       <TextInput
         placeholder="example@gmail.com"
-        style={{
-          height: 50,
-          backgroundColor: "#202020",
-          borderRadius: 10,
-          borderColor: "#9dc5c3",
-          borderWidth: 2,
-          padding: 10,
-          marginTop: 5,
-          color: "white",
-        }}
+        style={style.emailInputField}
       />
       <Text style={{ color: "grey", marginTop: 9, fontWeight: "bold" }}>
         Password
@@ -88,28 +56,12 @@ export default function Login({ navigation }) {
       <TextInput
         secureTextEntry={true}
         placeholder="Enter your password"
-        style={{
-          height: 50,
-          backgroundColor: "#202020",
-          borderRadius: 10,
-          borderColor: "#9dc5c3",
-          borderWidth: 2,
-          padding: 10,
-          marginTop: 5,
-          color: "white",
-        }}
+        style={style.passwordInputField}
       />
       <TouchableOpacity onPress={() => navigation.navigate("Home")} style={{}}>
         <LinearGradient
           colors={["#8F00FF", "#AE30FF", "#B840FF"]}
-          style={{
-            padding: 10,
-            paddingHorizontal: 60,
-            borderRadius: 10,
-            marginTop: 20,
-            alignItems: "center",
-            height: 50,
-          }}
+          style={style.gradientSignUp}
         >
           <Text style={{ fontWeight: "bold", flex: 1, color: "white" }}>
             Log in
@@ -125,3 +77,61 @@ export default function Login({ navigation }) {
     </View>
   );
 }
+const style = StyleSheet.create({
+  mainContainer: {
+    backgroundColor: "#131313",
+    flex: 1,
+    padding: 35,
+    justifyContent: "center",
+  },
+  googleButton: {
+    backgroundColor: "#202020",
+    padding: 10,
+    paddingHorizontal: 40,
+    borderRadius: 10,
+    marginTop: 10,
+    alignItems: "center",
+    width: 150,
+    borderColor: "#9dc5c3",
+    borderWidth: 2,
+  },
+  appleButton: {
+    backgroundColor: "#202020",
+    padding: 10,
+    paddingHorizontal: 40,
+    borderRadius: 10,
+    marginTop: 10,
+    alignItems: "center",
+    width: 150,
+    borderColor: "#9dc5c3",
+    borderWidth: 2,
+  },
+  passwordInputField: {
+    height: 50,
+    backgroundColor: "#202020",
+    borderRadius: 10,
+    borderColor: "#9dc5c3",
+    borderWidth: 2,
+    padding: 10,
+    marginTop: 5,
+    color: "white",
+  },
+  emailInputField: {
+    height: 50,
+    backgroundColor: "#202020",
+    borderRadius: 10,
+    borderColor: "#9dc5c3",
+    borderWidth: 2,
+    padding: 10,
+    marginTop: 5,
+    color: "white",
+  },
+  gradientSignup: {
+    padding: 10,
+    paddingHorizontal: 60,
+    borderRadius: 10,
+    marginTop: 20,
+    alignItems: "center",
+    height: 45,
+  },
+});

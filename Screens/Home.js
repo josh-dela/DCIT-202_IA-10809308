@@ -13,6 +13,7 @@ import {
   TextInput,
   Dimensions,
   FlatList,
+  ImageBackground,
 } from "react-native";
 
 import { shoes } from "../assets/shoes";
@@ -51,57 +52,55 @@ export default function Home({ navigation }) {
     return (
       <TouchableOpacity onPress={() => navigation.navigate("details", shoe)}>
         <View style={style.card}>
-          <View style={{ alignItems: "flex-end" }}>
-            <MaterialIcons name="favorite-border" size={24} color="#8F00FF" />
-          </View>
-          <View style={{ flex: 1, alignItems: "center", color: "blue" }}>
-            <Image
+          <ImageBackground
+            style={{
+              flex: 1,
+              resizeMode: "cover",
+            }}
+            source={shoe.img}
+          >
+            <View style={{ alignItems: "flex-end" }}>
+              <MaterialIcons name="favorite-border" size={24} color="#8F00FF" />
+            </View>
+            <View style={{ flex: 1 }}></View>
+            <Text
               style={{
-                flex: 1,
-                width: 100,
-                height: 100,
-                resizeMode: "contain",
+                fontWeight: "bold",
+                fontSize: 14,
+                marginTop: 10,
+                color: "white",
               }}
-              source={shoe.img}
-            />
-          </View>
-          <Text
-            style={{
-              fontWeight: "bold",
-              fontSize: 14,
-              marginTop: 10,
-              color: "white",
-            }}
-          >
-            {shoe.name}
-          </Text>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              marginTop: 5,
-            }}
-          >
-            <Text style={{ fontSize: 10, fontWeight: "bold" }}>
-              ${shoe.price}
+            >
+              {shoe.name}
             </Text>
             <View
               style={{
-                height: 23,
-                width: 23,
-                backgroundColor: "grey",
-                borderRadius: 5,
-                justifyContent: "center",
-                alignItems: "center",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                marginTop: 5,
               }}
             >
-              <Text
-                style={{ fontSize: 22, color: "white", fontWeight: "bold" }}
-              >
-                +
+              <Text style={{ fontSize: 10, fontWeight: "bold" }}>
+                ${shoe.price}
               </Text>
+              <View
+                style={{
+                  height: 23,
+                  width: 23,
+                  backgroundColor: "grey",
+                  borderRadius: 5,
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Text
+                  style={{ fontSize: 22, color: "white", fontWeight: "bold" }}
+                >
+                  +
+                </Text>
+              </View>
             </View>
-          </View>
+          </ImageBackground>
         </View>
       </TouchableOpacity>
     );
