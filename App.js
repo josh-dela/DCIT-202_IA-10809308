@@ -7,6 +7,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Home from "./Screens/Home";
 import details from "./Screens/details";
 import Login from "./Screens/Login";
+import Cart from "./Screens/Cart";
 import BottomNavigator from "./Navigation/bottomTab";
 
 export default function App() {
@@ -29,6 +30,11 @@ export default function App() {
           <MainNavigator.Screen
             name="details"
             component={details}
+            options={{ header: () => null }}
+          />
+          <MainNavigator.Screen
+            name="Cart"
+            component={Cart}
             options={{ header: () => null }}
           />
         </MainNavigator.Navigator>
