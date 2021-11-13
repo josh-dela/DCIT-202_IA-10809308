@@ -17,6 +17,7 @@ import {
 } from "react-native";
 
 import { shoes } from "../assets/shoes";
+import Cart from "../Screens/Cart"; //remove
 
 const width = Dimensions.get("screen").width / 2 - 30;
 
@@ -54,8 +55,9 @@ export default function Home({ navigation }) {
         <View style={style.card}>
           <ImageBackground
             style={{
-              flex: 1,
-              resizeMode: "cover",
+              height: "100%",
+              width: "100%",
+              resizeMode: "contain",
             }}
             source={shoe.img}
           >
@@ -112,11 +114,16 @@ export default function Home({ navigation }) {
     >
       <View style={{ marginTop: 50, flexDirection: "row" }}>
         <View style={style.searchContainer}>
-          <AntDesign name="search1" size={18} color="white" />
+          <AntDesign name="search1" size={20} color="white" />
           <TextInput placeholder="search" style={style.input} />
         </View>
         <View style={{ marginTop: 7 }}>
-          <AntDesign name="shoppingcart" size={24} color="white" />
+          <AntDesign
+            name="shoppingcart"
+            size={24}
+            color="white"
+            onPress={() => navigation.navigate("Cart")}
+          />
         </View>
       </View>
       <CategoryList />
@@ -167,6 +174,7 @@ const style = StyleSheet.create({
   card: {
     height: 300,
     backgroundColor: "#202020",
+    elevation: 10,
     width,
     marginHorizontal: 4,
     marginBottom: 20,

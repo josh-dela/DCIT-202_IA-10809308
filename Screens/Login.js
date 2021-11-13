@@ -126,7 +126,7 @@ const style = StyleSheet.create({
     marginTop: 5,
     color: "white",
   },
-  gradientSignup: {
+  gradientSignUp: {
     padding: 10,
     paddingHorizontal: 60,
     borderRadius: 10,

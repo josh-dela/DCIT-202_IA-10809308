@@ -6,7 +6,7 @@ import { AntDesign } from "@expo/vector-icons";
 import React from "react";
 
 import Home from "../Screens/Home";
-
+7;
 const Tab = createBottomTabNavigator();
 
 //remove background colour from TabNavigator
