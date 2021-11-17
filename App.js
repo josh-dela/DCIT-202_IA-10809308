@@ -9,6 +9,7 @@ import details from "./Screens/details";
 import Login from "./Screens/Login";
 import Cart from "./Screens/Cart";
 import BottomNavigator from "./Navigation/bottomTab";
+import Checkout from "./Screens/Checkout";
 
 export default function App() {
   const MainNavigator = createStackNavigator();
@@ -35,6 +36,11 @@ export default function App() {
           <MainNavigator.Screen
             name="Cart"
             component={Cart}
+            options={{ header: () => null }}
+          />
+          <MainNavigator.Screen
+            name="Checkout"
+            component={Checkout}
             options={{ header: () => null }}
           />
         </MainNavigator.Navigator>

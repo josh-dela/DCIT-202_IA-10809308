@@ -6,11 +6,12 @@ import {
   TouchableOpacity,
   TextInput,
   StyleSheet,
+  Dimensions,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 
-//import { useNavigation } from '@react-navigation/native';
+const width = Dimensions.get("screen").width / 2 - 45;
 
 export default function Login({ navigation }) {
   return (
@@ -79,7 +80,7 @@ export default function Login({ navigation }) {
 }
 const style = StyleSheet.create({
   mainContainer: {
-    backgroundColor: "#131313",
+    backgroundColor: "#202020",
     flex: 1,
     padding: 35,
     justifyContent: "center",
@@ -87,24 +88,22 @@ const style = StyleSheet.create({
   googleButton: {
     backgroundColor: "#202020",
     padding: 10,
-    paddingHorizontal: 40,
     borderRadius: 10,
     marginTop: 10,
     alignItems: "center",
-    width: 150,
     borderColor: "#9dc5c3",
     borderWidth: 2,
+    width,
   },
   appleButton: {
     backgroundColor: "#202020",
     padding: 10,
-    paddingHorizontal: 40,
     borderRadius: 10,
     marginTop: 10,
     alignItems: "center",
-    width: 150,
     borderColor: "#9dc5c3",
     borderWidth: 2,
+    width,
   },
   passwordInputField: {
     height: 50,

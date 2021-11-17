@@ -1,4 +1,9 @@
 import React from "react";
+import { AntDesign } from "@expo/vector-icons";
+import { FlatList } from "react-native-gesture-handler";
+import { LinearGradient } from "expo-linear-gradient";
+import { Ionicons } from "@expo/vector-icons";
+
 import {
   Text,
   SafeAreaView,
@@ -7,10 +12,6 @@ import {
   View,
   Image,
 } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
-import { FlatList } from "react-native-gesture-handler";
-import { LinearGradient } from "expo-linear-gradient";
-import { Ionicons } from "@expo/vector-icons";
 
 import { shoes } from "../assets/shoes";
 
@@ -28,16 +29,15 @@ export default function Cart({ navigation }) {
           }}
         >
           <Text style={{ fontWeight: "bold", fontSize: 16 }}>{shoe.name}</Text>
-          <Text style={{ fontSize: 13, color: "blue" }}>{shoe.name}</Text>
           <Text style={{ fontSize: 17, fontWeight: "bold" }}>
             ${shoe.price}
           </Text>
         </View>
         <View style={{ marginRight: 20, alignItems: "center" }}>
-          <Text style={{ fontWeight: "bold", fontSize: 18 }}>3</Text>
+          <Text style={{ fontWeight: "bold", fontSize: 12 }}>4 pieces</Text>
           <View style={style.actionButton}>
-            <AntDesign name="google" size={18} color="white" />
-            <AntDesign name="google" size={18} color="white" />
+            <AntDesign name="plus" size={18} color="black" />
+            <AntDesign name="minus" size={24} color="black" />
           </View>
         </View>
       </View>
@@ -45,12 +45,12 @@ export default function Cart({ navigation }) {
   };
   return (
     <SafeAreaView
-      style={{ marginTop: 30, flex: 1, backgroundColor: "#131313" }}
+      style={{ flex: 1, paddingTop: 20, backgroundColor: "#131313" }}
     >
       <View style={style.header}>
         <Ionicons
-          name="chevron-back-circle-outline"
-          size={18}
+          name="arrow-back-sharp"
+          size={26}
           color="white"
           onPress={() => navigation.goBack()}
         />
@@ -91,7 +91,7 @@ export default function Cart({ navigation }) {
               </Text>
             </View>
             <View style={{ marginHorizontal: 30 }}>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("Checkout")}>
                 <LinearGradient
                   colors={["#8F00FF", "#AE30FF", "#B840FF"]}
                   style={style.gradientSignUp}
@@ -129,12 +129,11 @@ const style = StyleSheet.create({
   actionButton: {
     width: 80,
     height: 30,
-    backgroundColor: "yellow",
+    backgroundColor: "#5D8AA8",
     borderRadius: 30,
-    paddingHorizontal: 5,
+    padding: 6,
     flexDirection: "row",
-    justifyContent: "center",
-    alignContent: "center",
+    justifyContent: "space-between",
   },
   gradientSignUp: {
     padding: 10,

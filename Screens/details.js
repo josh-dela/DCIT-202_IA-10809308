@@ -1,6 +1,7 @@
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
 import {
   Text,
   View,
@@ -19,7 +20,7 @@ export default function details({ navigation, route }) {
     <SafeAreaView style={{ flex: 1, backgroundColor: "#202020" }}>
       <View style={style.header}></View>
       <Ionicons
-        name="chevron-back-circle-outline"
+        name="arrow-back-sharp"
         size={50}
         color="white"
         onPress={() => navigation.goBack()}
@@ -36,21 +37,12 @@ export default function details({ navigation, route }) {
         />
       </View>
       <View style={style.detailsContainer}>
-        <View>
-          <Text style={{ fontWeight: "bold", fontSize: 20, color: "red" }}>
-            Under Development.....Dont Touch
-          </Text>
-        </View>
         <View
           style={{
-            flex: 1,
             marginLeft: 20,
-            flexDirection: "row",
-            alignItems: "flex-end",
           }}
         >
-          <View style={style.line} />
-          <Text style={{ fontSize: 18, fontWeight: "bold" }}> Best Choice</Text>
+          <Text style={{ fontSize: 18, fontWeight: "bold" }}>Best Choice</Text>
         </View>
         <View
           style={{
@@ -59,7 +51,6 @@ export default function details({ navigation, route }) {
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "space-between",
-            backgroundColor: "yellow",
           }}
         >
           <Text style={{ fontSize: 22, fontWeight: "bold" }}>{shoe.name}</Text>
@@ -70,10 +61,13 @@ export default function details({ navigation, route }) {
           </View>
         </View>
         <View style={{ paddingHorizontal: 20, marginTop: 10 }}>
-          <Text style={{ fontSize: 20, fontWeight: "bold" }}>About</Text>
+          <Text style={{ fontSize: 17, fontWeight: "bold" }}>
+            What our customers say
+          </Text>
+
           <Text
             style={{
-              color: "blue",
+              color: "white",
               fontSize: 16,
               lineHeight: 22,
               marginTop: 10,
@@ -81,10 +75,16 @@ export default function details({ navigation, route }) {
           >
             {shoe.about}
           </Text>
+          <View style={{ flexDirection: "row" }}>
+            <Entypo name="star" size={20} color="yellow" />
+            <Entypo name="star" size={20} color="yellow" />
+            <Entypo name="star" size={20} color="yellow" />
+            <Entypo name="star" size={20} color="yellow" />
+            <Entypo name="star" size={20} color="yellow" />
+          </View>
         </View>
         <View
           style={{
-            backgroundColor: "red",
             marginTop: 30,
             flexDirection: "row",
             justifyContent: "space-between",
@@ -92,31 +92,19 @@ export default function details({ navigation, route }) {
         >
           <View
             style={{
+              marginTop: 40,
               flexDirection: "row",
-              alignItems: "center",
-              backgroundColor: "blue",
+              flex: 1,
+              justifyContent: "center",
             }}
           >
-            <View style={style.borderButton}>
-              <Text style={style.borderButtonText}>+</Text>
+            <View style={style.buyButton}>
+              <Text
+                style={{ color: "white", fontSize: 18, fontWeight: "bold" }}
+              >
+                Buy
+              </Text>
             </View>
-            <Text
-              style={{
-                fontSize: 20,
-                marginHorizontal: 10,
-                fontWeight: "bold",
-              }}
-            >
-              1
-            </Text>
-            <View style={style.borderButton}>
-              <Text style={style.borderButtonText}>-</Text>
-            </View>
-          </View>
-          <View style={style.buyButton}>
-            <Text style={{ color: "black", fontSize: 18, fontWeight: "bold" }}>
-              Buy
-            </Text>
           </View>
         </View>
       </View>
@@ -146,13 +134,6 @@ const style = StyleSheet.create({
     marginTop: 30,
     paddingTop: 30,
   },
-  line: {
-    width: 25,
-    height: 2,
-    backgroundColor: "black",
-    marginBottom: 5,
-    marginRight: 3,
-  },
   priceTag: {
     backgroundColor: "green",
     width: 80,
@@ -168,10 +149,7 @@ const style = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  borderButtonText: {
-    fontWeight: "bold",
-    fontSize: 28,
-  },
+
   buyButton: {
     width: 150,
     height: 50,
