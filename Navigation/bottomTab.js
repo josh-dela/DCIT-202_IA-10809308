@@ -6,7 +6,7 @@ import { AntDesign } from "@expo/vector-icons";
 import React from "react";
 
 import Home from "../Screens/Home";
-7;
+
 const Tab = createBottomTabNavigator();
 
 //remove background colour from TabNavigator
@@ -30,9 +30,7 @@ const BottomNavigator = () => {
         component={Home}
         options={{
           header: () => null,
-          tabBarIcon: ({ color }) => (
-            <AntDesign name="home" size={24} color="red" />
-          ),
+          tabBarIcon: () => <AntDesign name="home" size={24} color="blue" />,
         }}
       />
     </Tab.Navigator>
